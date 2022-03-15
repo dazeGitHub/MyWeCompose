@@ -9,201 +9,190 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 
 private val LightColorPalette = WeComposeColors(
-    bottomBar = white1,
-    background = white2,
-    listItem = white,
-    divider = white3,
-    chatPage = white2,
-    textPrimary = black3,
-    textPrimaryMe = black3,
-    textSecondary = grey1,
-    onBackground = grey3,
-    icon = black,
-    iconCurrent = green3,
-    badge = red1,
-    onBadge = white,
-    bubbleMe = green1,
-    bubbleOthers = white,
-    textFieldBackground = white,
-    more = grey4,
-    chatPageBgAlpha = 0f,
+  bottomBar = white1,
+  background = white2,
+  listItem = white,
+  divider = white3,
+  chatPage = white2,
+  textPrimary = black3,
+  textPrimaryMe = black3,
+  textSecondary = grey1,
+  onBackground = grey3,
+  icon = black,
+  iconCurrent = green3,
+  badge = red1,
+  onBadge = white,
+  bubbleMe = green1,
+  bubbleOthers = white,
+  textFieldBackground = white,
+  more = grey4,
+  chatPageBgAlpha = 0f,
 )
 private val DarkColorPalette = WeComposeColors(
-    bottomBar = black1,
-    background = black2,
-    listItem = black3,
-    divider = black4,
-    chatPage = black2,
-    textPrimary = white4,
-    textPrimaryMe = black6,
-    textSecondary = grey1,
-    onBackground = grey1,
-    icon = white5,
-    iconCurrent = green3,
-    badge = red1,
-    onBadge = white,
-    bubbleMe = green2,
-    bubbleOthers = black5,
-    textFieldBackground = black7,
-    more = grey5,
-    chatPageBgAlpha = 0f,
+  bottomBar = black1,
+  background = black2,
+  listItem = black3,
+  divider = black4,
+  chatPage = black2,
+  textPrimary = white4,
+  textPrimaryMe = black6,
+  textSecondary = grey1,
+  onBackground = grey1,
+  icon = white5,
+  iconCurrent = green3,
+  badge = red1,
+  onBadge = white,
+  bubbleMe = green2,
+  bubbleOthers = black5,
+  textFieldBackground = black7,
+  more = grey5,
+  chatPageBgAlpha = 0f,
 )
 private val NewYearColorPalette = WeComposeColors(
-    bottomBar = red4,
-    background = red5,
-    listItem = red2,
-    divider = red3,
-    chatPage = red5,
-    textPrimary = white,
-    textPrimaryMe = black6,
-    textSecondary = grey2,
-    onBackground = grey2,
-    icon = white5,
-    iconCurrent = green3,
-    badge = yellow1,
-    onBadge = black3,
-    bubbleMe = green2,
-    bubbleOthers = red6,
-    textFieldBackground = red7,
-    more = red8,
-    chatPageBgAlpha = 1f,
+  bottomBar = red4,
+  background = red5,
+  listItem = red2,
+  divider = red3,
+  chatPage = red5,
+  textPrimary = white,
+  textPrimaryMe = black6,
+  textSecondary = grey2,
+  onBackground = grey2,
+  icon = white5,
+  iconCurrent = green3,
+  badge = yellow1,
+  onBadge = black3,
+  bubbleMe = green2,
+  bubbleOthers = red6,
+  textFieldBackground = red7,
+  more = red8,
+  chatPageBgAlpha = 1f,
 )
 
-//使用 compositionLocalOf{} 将 LightColorPalette 包起来, 得到一个 CompositionLocal<WeComposeColors> 类型的对象
-private val LocalWeComposeColors : ProvidableCompositionLocal<WeComposeColors> = compositionLocalOf {
-    LightColorPalette
+private val LocalWeComposeColors = compositionLocalOf {
+  LightColorPalette
 }
 
-//LocalWeComposeColors.current 得到正好是 compositionLocalOf{} 包起来的对象, 即 WeComposeColors 类型的对象 LightColorPalette
 object WeComposeTheme {
-    val colors: WeComposeColors
-        @Composable
-        get() = LocalWeComposeColors.current
-    enum class Theme {
-        Light, Dark, NewYear
-    }
+  val colors: WeComposeColors
+    @Composable
+    get() = LocalWeComposeColors.current
+  enum class Theme {
+    Light, Dark, NewYear
+  }
 }
 
 @Stable
 class WeComposeColors(
-    bottomBar: Color,
-    background: Color,
-    listItem: Color,
-    divider: Color,
-    chatPage: Color,
-    textPrimary: Color,
-    textPrimaryMe: Color,
-    textSecondary: Color,
-    onBackground: Color,
-    icon: Color,
-    iconCurrent: Color,
-    badge: Color,
-    onBadge: Color,
-    bubbleMe: Color,
-    bubbleOthers: Color,
-    textFieldBackground: Color,
-    more: Color,
-    chatPageBgAlpha: Float,
+  bottomBar: Color,
+  background: Color,
+  listItem: Color,
+  divider: Color,
+  chatPage: Color,
+  textPrimary: Color,
+  textPrimaryMe: Color,
+  textSecondary: Color,
+  onBackground: Color,
+  icon: Color,
+  iconCurrent: Color,
+  badge: Color,
+  onBadge: Color,
+  bubbleMe: Color,
+  bubbleOthers: Color,
+  textFieldBackground: Color,
+  more: Color,
+  chatPageBgAlpha: Float,
 ) {
-    var bottomBar: Color by mutableStateOf(bottomBar)
-        private set
-    var background: Color by mutableStateOf(background)
-        private set
-    var listItem: Color by mutableStateOf(listItem)
-        private set
-    var chatListDivider: Color by mutableStateOf(divider)
-        private set
-    var chatPage: Color by mutableStateOf(chatPage)
-        private set
-    var textPrimary: Color by mutableStateOf(textPrimary)
-        private set
-    var textPrimaryMe: Color by mutableStateOf(textPrimaryMe)
-        private set
-    var textSecondary: Color by mutableStateOf(textSecondary)
-        private set
-    var onBackground: Color by mutableStateOf(onBackground)
-        private set
-    var icon: Color by mutableStateOf(icon)
-        private set
-    var iconCurrent: Color by mutableStateOf(iconCurrent)
-        private set
-    var badge: Color by mutableStateOf(badge)
-        private set
-    var onBadge: Color by mutableStateOf(onBadge)
-        private set
-    var bubbleMe: Color by mutableStateOf(bubbleMe)
-        private set
-    var bubbleOthers: Color by mutableStateOf(bubbleOthers)
-        private set
-    var textFieldBackground: Color by mutableStateOf(textFieldBackground)
-        private set
-    var more: Color by mutableStateOf(more)
-        private set
-    var chatPageBgAlpha: Float by mutableStateOf(chatPageBgAlpha)
-        private set
+  var bottomBar: Color by mutableStateOf(bottomBar)
+    private set
+  var background: Color by mutableStateOf(background)
+    private set
+  var listItem: Color by mutableStateOf(listItem)
+    private set
+  var chatListDivider: Color by mutableStateOf(divider)
+    private set
+  var chatPage: Color by mutableStateOf(chatPage)
+    private set
+  var textPrimary: Color by mutableStateOf(textPrimary)
+    private set
+  var textPrimaryMe: Color by mutableStateOf(textPrimaryMe)
+    private set
+  var textSecondary: Color by mutableStateOf(textSecondary)
+    private set
+  var onBackground: Color by mutableStateOf(onBackground)
+    private set
+  var icon: Color by mutableStateOf(icon)
+    private set
+  var iconCurrent: Color by mutableStateOf(iconCurrent)
+    private set
+  var badge: Color by mutableStateOf(badge)
+    private set
+  var onBadge: Color by mutableStateOf(onBadge)
+    private set
+  var bubbleMe: Color by mutableStateOf(bubbleMe)
+    private set
+  var bubbleOthers: Color by mutableStateOf(bubbleOthers)
+    private set
+  var textFieldBackground: Color by mutableStateOf(textFieldBackground)
+    private set
+  var more: Color by mutableStateOf(more)
+    private set
+  var chatPageBgAlpha: Float by mutableStateOf(chatPageBgAlpha)
+    private set
 }
 
 @Composable
 fun WeComposeTheme(theme: WeComposeTheme.Theme = WeComposeTheme.Theme.Light, content: @Composable() () -> Unit) {
-    val targetColors = when (theme) {
-        WeComposeTheme.Theme.Light -> LightColorPalette
-        WeComposeTheme.Theme.Dark -> DarkColorPalette
-        WeComposeTheme.Theme.NewYear -> NewYearColorPalette
-    }
+  val targetColors = when (theme) {
+    WeComposeTheme.Theme.Light -> LightColorPalette
+    WeComposeTheme.Theme.Dark -> DarkColorPalette
+    WeComposeTheme.Theme.NewYear -> NewYearColorPalette
+  }
 
-    val bottomBar = animateColorAsState(targetColors.bottomBar, TweenSpec(600))
-    val background = animateColorAsState(targetColors.background, TweenSpec(600))
-    val listItem = animateColorAsState(targetColors.listItem, TweenSpec(600))
-    val chatListDivider = animateColorAsState(targetColors.chatListDivider, TweenSpec(600))
-    val chatPage = animateColorAsState(targetColors.chatPage, TweenSpec(600))
-    val textPrimary = animateColorAsState(targetColors.textPrimary, TweenSpec(600))
-    val textPrimaryMe = animateColorAsState(targetColors.textPrimaryMe, TweenSpec(600))
-    val textSecondary = animateColorAsState(targetColors.textSecondary, TweenSpec(600))
-    val onBackground = animateColorAsState(targetColors.onBackground, TweenSpec(600))
-    val icon = animateColorAsState(targetColors.icon, TweenSpec(600))
-    val iconCurrent = animateColorAsState(targetColors.iconCurrent, TweenSpec(600))
-    val badge = animateColorAsState(targetColors.badge, TweenSpec(600))
-    val onBadge = animateColorAsState(targetColors.onBadge, TweenSpec(600))
-    val bubbleMe = animateColorAsState(targetColors.bubbleMe, TweenSpec(600))
-    val bubbleOthers = animateColorAsState(targetColors.bubbleOthers, TweenSpec(600))
-    val textFieldBackground = animateColorAsState(targetColors.textFieldBackground, TweenSpec(600))
-    val more = animateColorAsState(targetColors.more, TweenSpec(600))
-    val chatPageBgAlpha = animateFloatAsState(targetColors.chatPageBgAlpha, TweenSpec(600))
+  val bottomBar = animateColorAsState(targetColors.bottomBar, TweenSpec(600))
+  val background = animateColorAsState(targetColors.background, TweenSpec(600))
+  val listItem = animateColorAsState(targetColors.listItem, TweenSpec(600))
+  val chatListDivider = animateColorAsState(targetColors.chatListDivider, TweenSpec(600))
+  val chatPage = animateColorAsState(targetColors.chatPage, TweenSpec(600))
+  val textPrimary = animateColorAsState(targetColors.textPrimary, TweenSpec(600))
+  val textPrimaryMe = animateColorAsState(targetColors.textPrimaryMe, TweenSpec(600))
+  val textSecondary = animateColorAsState(targetColors.textSecondary, TweenSpec(600))
+  val onBackground = animateColorAsState(targetColors.onBackground, TweenSpec(600))
+  val icon = animateColorAsState(targetColors.icon, TweenSpec(600))
+  val iconCurrent = animateColorAsState(targetColors.iconCurrent, TweenSpec(600))
+  val badge = animateColorAsState(targetColors.badge, TweenSpec(600))
+  val onBadge = animateColorAsState(targetColors.onBadge, TweenSpec(600))
+  val bubbleMe = animateColorAsState(targetColors.bubbleMe, TweenSpec(600))
+  val bubbleOthers = animateColorAsState(targetColors.bubbleOthers, TweenSpec(600))
+  val textFieldBackground = animateColorAsState(targetColors.textFieldBackground, TweenSpec(600))
+  val more = animateColorAsState(targetColors.more, TweenSpec(600))
+  val chatPageBgAlpha = animateFloatAsState(targetColors.chatPageBgAlpha, TweenSpec(600))
 
-    val colors = WeComposeColors(
-        bottomBar = bottomBar.value,
-        background = background.value,
-        listItem = listItem.value,
-        divider = chatListDivider.value,
-        chatPage = chatPage.value,
-        textPrimary = textPrimary.value,
-        textPrimaryMe = textPrimaryMe.value,
-        textSecondary = textSecondary.value,
-        onBackground = onBackground.value,
-        icon = icon.value,
-        iconCurrent = iconCurrent.value,
-        badge = badge.value,
-        onBadge = onBadge.value,
-        bubbleMe = bubbleMe.value,
-        bubbleOthers = bubbleOthers.value,
-        textFieldBackground = textFieldBackground.value,
-        more = more.value,
-        chatPageBgAlpha = chatPageBgAlpha.value,
+  val colors = WeComposeColors(
+    bottomBar = bottomBar.value,
+    background = background.value,
+    listItem = listItem.value,
+    divider = chatListDivider.value,
+    chatPage = chatPage.value,
+    textPrimary = textPrimary.value,
+    textPrimaryMe = textPrimaryMe.value,
+    textSecondary = textSecondary.value,
+    onBackground = onBackground.value,
+    icon = icon.value,
+    iconCurrent = iconCurrent.value,
+    badge = badge.value,
+    onBadge = onBadge.value,
+    bubbleMe = bubbleMe.value,
+    bubbleOthers = bubbleOthers.value,
+    textFieldBackground = textFieldBackground.value,
+    more = more.value,
+    chatPageBgAlpha = chatPageBgAlpha.value,
+  )
+
+  CompositionLocalProvider(LocalWeComposeColors provides colors) {
+    MaterialTheme(
+      shapes = shapes,
+      content = content
     )
-
-    //Kotlin 允许在不使用括号和点号的情况下调用函数, 那么这种函数被称为 infix 函数
-    //例如 1 to "one" 的 to 就是一个 infix 函数 : public infix fun <A, B> A.to(that: B): Pair<A, B> = Pair(this, that)
-    //这里的 provides 就类似于 to, 函数原型 :
-    //  abstract class ProvidableCompositionLocal<T>{
-    //      infix fun provides(value: T) = ProvidedValue(this, value, true)
-    //  }
-    //LocalWeComposeColors 正好是 CompositionLocal<WeComposeColors> 类型的对象,
-    //即 LocalWeComposeColors provides colors 返回一个 ProvidedValue(this, colors, true) 对象
-    //那么下边的代码就是传入 colors 生成一个 ProvidedValue(this, colors, true) 对象, 然后传入 ProvidedValue 对象来改变 content
-    CompositionLocalProvider(LocalWeComposeColors provides colors) {
-        MaterialTheme(
-            shapes = shapes,
-            content = content
-        )
-    }
+  }
 }
